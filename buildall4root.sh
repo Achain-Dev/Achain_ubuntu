@@ -16,14 +16,14 @@ echo "Warning: make sure you have installed dependent packages in your system"
 echo "if not, pls read the buildall.sh and run the comment scripts in the beginning"
 echo
 
-while true; do
-    read -p "Do you wish to continue building the program?[y/n] " yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) exit;;
-        * ) echo "Please enter yes or no.";;
-    esac
-done
+#while true; do
+#    read -p "Do you wish to continue building the program?[y/n] " yn
+#    case $yn in
+#        [Yy]* ) break;;
+#        [Nn]* ) exit;;
+#        * ) echo "Please enter yes or no.";;
+#    esac
+#done
 
 if [ "$1" != "download" ]
 then
