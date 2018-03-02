@@ -4240,6 +4240,7 @@ namespace thinkyoung {
                 FC_ASSERT(asset_name.size() <= ALP_BLOCKCHAIN_MAX_SYMBOL_NAME_SIZE, "Asset name too big");
                 FC_ASSERT(description.size() <= ALP_BLOCKCHAIN_MAX_SYMBOL_DES_SIZE, "Asset description too big");
                 FC_ASSERT(!my->_blockchain->is_valid_symbol(symbol)); // not yet registered
+
                 SignedTransaction     trx;
                 unordered_set<Address> required_signatures;
                 trx.expiration = blockchain::now() + get_transaction_expiration();

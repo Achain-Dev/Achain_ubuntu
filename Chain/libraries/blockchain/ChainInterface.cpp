@@ -44,20 +44,8 @@ namespace thinkyoung {
         }
 
         /**
-         * Symbol names can be hierarchical: for example a primary symbol name, a '.', and a sub-symbol name.
          * A primary symbol name must be a minimum of 3 and a maximum of 8 characters in length.
          * Primary names can only contain uppercase letters (digits are not allowed to avoid 0 and 1 spoofing).
-         * A hierarchical symbol name (consisting of a primary symbol name, a dot, and a sub-symbol name) can be up to 12 chars
-         * in total length (including the dot).
-         * Sub-symbol names can contain uppercase letters or digits (digits are allowed in sub-symbols because the namespace is
-         * overseen by the owner of the primary symbol and is therefore not subject to spoofing).
-         *
-         * To fit under the 12 character limit, it is likely that users planning to register hierarchical names will
-         * choose shorter (more expensive) symbol names for their primary symbol, so that they can mirror more primary symbol names.
-         * The max of 12 for hierarchical symbol names will allow hierarchical mirroring of long primary symbol characters
-         * as long as the primary symbol buyer purchases a symbol of 3 in size. For example, if CRY was chosen as the primary symbol,
-         * CRY.ABCDEFGH could be registered. But if a longer name was chosen as a primary symbol, such as CRYPTO,
-         * then only symbols up to 5 in length can be mirrored (i.e CRYPTO.ABCDEFGH would be too long).
          */
         bool ChainInterface::is_valid_symbol_name(const string& symbol)const
         {
@@ -78,8 +66,8 @@ namespace thinkyoung {
                     ++position;
                 }
 
-                    if (position > ALP_BLOCKCHAIN_MAX_SUB_SYMBOL_SIZE)
-                        FC_ASSERT(false, "Symbol name too large");
+                if (position > ALP_BLOCKCHAIN_MAX_SUB_SYMBOL_SIZE)
+                    FC_ASSERT(false, "Symbol name too large");
 
                 if (symbol.find("ACT") == 0)
                     FC_ASSERT(false, "Symbol names cannot be prefixed with ACT");
