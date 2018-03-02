@@ -2375,7 +2375,7 @@ PrettyTransaction		Wallet::to_pretty_trx(const thinkyoung::blockchain::Transacti
 			pretty_entry.amount = Asset(0); // Assume scan_withdraw came first
 
             //֢�ࠎ޷�ͨ��ˀ�ȸ�ֳ�ֽ�ӗˇʽ��֋��Ϊ��ńז��ӗˇ���хϢ
-            //Ӳ�̖�Ŝ��Çͨ��Ҁ����ϣ���ˇ˖Ѹ�Ѳ���һ��ˇһ����Ŋ�          //̹ӔЖ՚ֻŜ�򵥴ֱ��ēĒ���0ALP4���֣�ֻҪˇ��000ALP��ɏΪˇʽ����           if (total_fee <= Asset( 1000 * ALP_BLOCKCHAIN_PRECISION ))
+            if (total_fee <= Asset( 1000 * ALP_BLOCKCHAIN_PRECISION ))
             {
                 pretty_entry.memo = "update " + account_name_entry->name;
                 pretty_trx.trx_type = thinkyoung::blockchain::TransactionType::update_account_transaction;
